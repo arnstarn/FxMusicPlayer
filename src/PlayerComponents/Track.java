@@ -87,4 +87,28 @@ public class Track
     this.filename = filename;
   }
 
+  @Override
+  public int hashCode(){
+    int result = 0;
+    result = 31*result + (artist !=null ? artist.hashCode() : 0);
+    result = 31*result + (title !=null ? title.hashCode() : 0);
+    result = 31*result + (filename  !=null ? filename.hashCode() : 0);
+
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj){
+    if(this == obj) return true;
+
+    if(obj == null || (this.getClass() != obj.getClass())){
+      return false;
+    }
+
+    Track track = (Track) obj;
+    return (this.artist != null && this.artist.equalsIgnoreCase(track.artist)) &&
+        (this.title != null && this.title.equalsIgnoreCase(track.title)) &&
+        (this.filename != null && this.filename.equalsIgnoreCase(track.filename));
+  }
+
 }

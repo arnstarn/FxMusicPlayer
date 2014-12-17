@@ -11,13 +11,6 @@ import java.util.ArrayList;
  */
 public class MusicOrganizer
 {
-  public ArrayList<Track> getTracks() {
-    return tracks;
-  }
-
-  public void setTracks(ArrayList<Track> tracks){
-    this.tracks = tracks;
-  }
 
   // An ArrayList for storing music tracks.
   private ArrayList<Track> tracks;
@@ -50,7 +43,7 @@ public class MusicOrganizer
     tracks = new ArrayList<Track>();
     player = new MusicPlayer();
     reader = new TrackReader();
-    currentTrackIndex = 0;
+    resetTrackIndex();
     readLibrary(dir);
   }
 
@@ -162,7 +155,7 @@ public class MusicOrganizer
    */
   public void playFirst()
   {
-    currentTrackIndex = 0;
+    resetTrackIndex();
     if(tracks.size() > 0) {
       player.startPlaying(tracks.get(0).getFilename());
     }
@@ -170,7 +163,7 @@ public class MusicOrganizer
 
   public void stop(){
     stopPlaying();
-    currentTrackIndex = 0;
+    resetTrackIndex();
   }
 
   /**
@@ -222,7 +215,7 @@ public class MusicOrganizer
 
   public int nextTrackIndex(){
     if (currentTrackIndex == getNumberOfTracks()-1){
-      currentTrackIndex = 0;
+      resetTrackIndex();
     } else {
       currentTrackIndex++;
     }
@@ -238,6 +231,24 @@ public class MusicOrganizer
     }
 
     return currentTrackIndex;
+  }
+
+  public ArrayList<Track> getTrackList() {
+    return tracks;
+  }
+
+  public void setTracks(ArrayList<Track> tracks){
+    this.tracks = tracks;
+    if (currentTrackIndex>=tracks.size())
+      resetTrackIndex();
+  }
+
+  public void resetTrackIndex(){
+    currentTrackIndex = 0;
+  }
+
+  public void setCurrentTrackIndex(int currentTrackIndex){
+    this.currentTrackIndex = currentTrackIndex;
   }
 
 }

@@ -4,7 +4,6 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.AudioDevice;
 import javazoom.jl.player.FactoryRegistry;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-import javazoom.jl.player.advanced.PlaybackListener;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -65,7 +64,7 @@ public class MusicPlayer
         {
           try {
             //player.play();
-            player.play(150);
+            player.play(300);
           }
           catch(JavaLayerException e) {
             killPlayer();
@@ -158,8 +157,5 @@ public class MusicPlayer
     System.out.println("There was a problem playing: " + filename);
   }
 
-  public void setPlaybackListener(PlaybackListener playbackListener){
-    player.setPlayBackListener(playbackListener);
-  }
 
 }

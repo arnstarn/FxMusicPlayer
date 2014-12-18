@@ -191,7 +191,6 @@ public class Controller implements Initializable {
     });
 
     list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-
       setDetailsPane((Track) newValue);
     });
 
@@ -201,9 +200,8 @@ public class Controller implements Initializable {
         play.setText(GLOBAL.PLAY);
         playButton(list.getSelectionModel().getSelectedIndex());
       }
-      if(e.getCode() == KeyCode.SPACE){
+      if(e.getCode() == KeyCode.SPACE)
         playButton(list.getSelectionModel().getSelectedIndex());
-      }
     });
 
     search.setOnKeyPressed((e)->{
@@ -231,11 +229,16 @@ public class Controller implements Initializable {
     });
 
     window.setOnKeyPressed((e) -> {
-      if ( e.getCode() == KeyCode.S || e.getCode() == KeyCode.F && e.isShortcutDown()){
+      if ( e.getCode() == KeyCode.S || e.getCode() == KeyCode.F && e.isShortcutDown())
         search.requestFocus();
-      }
       if(e.getCode() == KeyCode.O && e.isShortcutDown())
         dir.fire();
+      if(e.getCode() == KeyCode.R && e.isShortcutDown())
+        shuffle();
+      if(e.getCode() == KeyCode.RIGHT) {
+        next.fire();
+      }
+
     });
 
   }

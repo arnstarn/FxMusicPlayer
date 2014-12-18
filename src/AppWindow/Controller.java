@@ -191,7 +191,7 @@ public class Controller implements Initializable {
     });
 
     list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-      setDetailsPane((Track) newValue);
+      setDetailsPane((Track) newValue);\
     });
 
     list.setOnKeyPressed((e)->{

@@ -18,11 +18,6 @@ public class MusicOrganizer
   private MusicPlayer player;
   // A reader that can read music files and load them as tracks.
   private TrackReader reader;
-
-  public int getCurrentTrackIndex() {
-    return currentTrackIndex;
-  }
-
   private int currentTrackIndex;
 
   /**
@@ -249,6 +244,10 @@ public class MusicOrganizer
 
   public void setCurrentTrackIndex(int currentTrackIndex){
     this.currentTrackIndex = currentTrackIndex;
+  }
+
+  public int getCurrentTrackIndex() {
+    return currentTrackIndex;
   }
 
 }

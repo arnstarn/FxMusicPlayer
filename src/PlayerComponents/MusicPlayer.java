@@ -65,6 +65,7 @@ public class MusicPlayer
           try {
             //player.play();
             player.play(300);
+            //player.play(0,300);
           }
           catch(JavaLayerException e) {
             killPlayer();

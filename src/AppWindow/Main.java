@@ -14,12 +14,15 @@ public class Main extends Application {
         primaryStage.setTitle("FXMusicPlayer");
 
         //Parent root = FXMLLoader.load(getClass().getResource("/player.fxml"));
+
         //Above replaced by next 2 lines
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/player.fxml"));
-        Parent root = (Parent)fxmlLoader.load();
+        Parent root = fxmlLoader.load();
         //used to get stage for exit in controller class
         Controller controller = fxmlLoader.getController();
         controller.setStage(primaryStage);
+
+        //back to normal
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         scene.getStylesheets().add(getClass().getResource("/player.css").toExternalForm());

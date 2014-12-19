@@ -104,6 +104,7 @@ public class Controller implements Initializable {
         super.playbackStarted(playbackEvent);
         System.out.println(playbackEvent.getId() + " START EVENT");
         setDetailsPane(musicOrganizer.getTrackList().get(musicOrganizer.getCurrentTrackIndex()));
+
       }
       @Override
       public void playbackFinished(PlaybackEvent playbackEvent) {
@@ -128,13 +129,8 @@ public class Controller implements Initializable {
     /*play.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent e) {
-        if (play.getText().equals(">")){
-          play.setText("ll");
-          GLOBAL.musicOrganizer.playTrack(GLOBAL.musicOrganizer.getCurrentTrackIndex());
-        } else {
-          play.setText(">");
-          GLOBAL.musicOrganizer.stopPlaying();
-        }
+        if (musicOrganizer.getNumberOfTracks() !=0)
+        playButton(musicOrganizer.getCurrentTrackIndex());
       }
     });*/
 
